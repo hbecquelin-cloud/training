@@ -10,8 +10,8 @@ SELECT
     organisations.organisation_name,
     organisations.pricing_plan,
     organisations.subscribed_at
-FROM carteldeladata.modelisation_sources.users AS users
-LEFT JOIN carteldeladata.modelisation_sources.organisations AS organisations
+FROM {{ source(‘modelisation_sources’, ‘users’) }} AS users
+LEFT JOIN {{ source(‘modelisation_sources’, ‘organisations’) }} AS organisations
     ON users.organisation_id = organisations.id
 
 )

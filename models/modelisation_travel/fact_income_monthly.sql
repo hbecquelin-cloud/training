@@ -9,7 +9,7 @@ WITH travel_income_monthly AS (
             ELSE NULL
         END AS product_type,
         ROUND(SUM(income), 2) AS income
-    FROM carteldeladata.modelisation_travel.fact_travel_income
+    FROM {{ ref(‘fact_travel_income’) }} 
     GROUP BY 1, 2
 )
 
@@ -18,7 +18,7 @@ WITH travel_income_monthly AS (
         month,
         'CORPO_SUBSCRIPTION' AS product_type,
         ROUND(SUM(income), 2) AS income
-    FROM carteldeladata.modelisation_travel.fact_corpo_subscription_income
+    FROM {{ ref(‘fact_corpo_subscription_income’) }} 
     GROUP BY 1, 2  
 )
 

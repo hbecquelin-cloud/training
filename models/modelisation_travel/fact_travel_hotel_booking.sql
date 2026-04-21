@@ -15,8 +15,8 @@ SELECT
     hotels.name AS hotel_name,
     rooms.id AS hotel_room_id,
     rooms.payment_done_at
-FROM carteldeladata.modelisation_sources.rooms AS rooms
-LEFT JOIN carteldeladata.modelisation_sources.hotels AS hotels
+FROM {{ source(‘modelisation_sources’, ‘rooms’) }} AS rooms
+LEFT JOIN {{ source(‘modelisation_sources’, ‘hotels’) }} AS hotels
     ON hotels.id = rooms.hotel_id
 
 )
