@@ -9,7 +9,7 @@ WITH hotel_bookings_payments AS (
         DATE(payment_done_at) AS day,
         organisation_id,
         organisation_name,
-    FROM {{ ref(‘fact_travel_hotel_booking’) }} 
+    FROM {{ ref('fact_travel_hotel_booking') }} 
     WHERE booking_status = 'VALIDATED'
         AND payment_done_at IS NOT NULL
 )
@@ -23,7 +23,7 @@ WITH hotel_bookings_payments AS (
         DATE(payment_done_at) AS day,
         organisation_id,
         organisation_name,
-    FROM {{ ref(‘fact_travel_car_booking’) }} 
+    FROM {{ ref('fact_travel_car_booking') }} 
     WHERE booking_status = 'VALIDATED'
         AND payment_done_at IS NOT NULL
 )

@@ -16,7 +16,7 @@ WITH flattened_car_hires AS (
         car_rental_company_id,
         car_model_name,
         payment_done_at       
-    FROM {{ source(‘travel_bc’, ‘car_bookings’) }}
+    FROM {{ source('modelisation_sources', 'car_bookings') }}
     CROSS JOIN UNNEST(JSON_EXTRACT_ARRAY(main_driver_ids)) AS user_id --convert JSON to array and then UNNEST
 )
 
@@ -36,6 +36,6 @@ SELECT
     car_hires.car_model_name,
     car_hires.payment_done_at
 FROM flattened_car_hires AS car_hires
-LEFT JOIN {{ source(‘modelisation_sources’, ‘car_rental_companies’) }} AS car_rental_companies
+LEFT JOIN {{ source('modelisation_sources', 'car_rental_companies') }} AS car_rental_companies
     ON car_hires.car_rental_company_id = car_rental_companies.id
 )
