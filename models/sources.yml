@@ -8,7 +8,7 @@ sources:
       - name: car_rental_companies
       - name: hotels
       - name: users
-      - name : rooms
+      - name: rooms
       - name: calendrier_months
       - name: organisations
       - name: teams
