@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'travel-bc'
+name: 'travel_bc'
 version: '1.0.0'
 config-version: 2
 
@@ -41,9 +41,6 @@ models:
     example:
       +materialized: table
 
-sources:
-  - name: my_source
-    tables:
-      - name: my_source_table
-        config:
-          enabled: "{{ var('carteldeladata.travel_bc', false) }}"
+    modelisation_travel:
+      +materialized: table
+      
