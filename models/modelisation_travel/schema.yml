@@ -1,0 +1,7 @@
+models:
+  - name: dim_corpo_employee
+    columns:
+      - name: users_id
+        data_tests:
+          - unique
+          - not_null
