@@ -1,8 +1,7 @@
 
 sources:
   - name: carteldeladata
-    database:   carteldeladata
-    schema: modelisation_sources
+    database:   modelisation_sources
     tables:
       - name: car_hires
       - name: car_rental_companies
